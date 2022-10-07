@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  button {
+    background-color: steelblue;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal_overlay {
+    background-color: rgb(56, 56, 56);
+    width:100%;
+    height:100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal_content {
+    position: fixed;
+    top: 0px;
+    padding: 50px 100px;
+    position: relative;
+    width:10%;
+    background-color: gray;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+</style>
+
+
+<body>
+  <button id="open">open modal</button>
+  <div class="modal hidden">
+    <div class="modal_overlay"></div>
+    <div class="modal_content">
+      <h1>hello</h1>
+      <button>X</button>
+    </div>
+  </div>
+
+
+  <script>
+    const openButton = document.getElementById("open");
+    const modal = document.querySelector(".modal");
+    const overlay = modal.querySelector(".modal_overlay");
+    const closeBtn = modal.querySelector("button");
+
+    const openModal = () => {
+      modal.classList.remove("hidden");
+    };
+
+    const closeModal = () => {
+      modal.classList.add("hidden");
+    };
+    
+    overlay.addEventListener("click", closeModal);
+    closeBtn.addEventListener("click", closeModal);
+    openButton.addEventListener("click", openModal);
+  </script>
+  
+  
+</body>
+</html>

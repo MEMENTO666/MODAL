@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal test</title>
+</head>
+<style>
+  *{margin:0; padding:0; box-sizing: border-box;}
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+  }
+  
+  button {
+    background-color: red;
+    width:100px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+
+  }
+
+  .modal {
+    position: fixed;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal .bg {
+    width:100%;
+    height:100%;
+    background-color: rgba(46, 46, 46, 0.596);
+  }
+  
+  .modalBox {
+    position: absolute;
+    background-color: crimson;
+    width:300px;
+    height:300px;
+    padding:15px;  
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+  }
+
+  .modalBox button {
+    display: flex;
+    width:20px;
+    height:20px;
+    background-color: rgb(156, 150, 150);
+    margin-top: 270px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+  
+  
+  
+  
+</style>
+
+<body>
+  <button class="openBtn">OPEN</button>
+  <div class="modal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, ab. Minus, eos esse. Qui autem eaque voluptas rerum ipsam ducimus minima eveniet illo natus minus tenetur totam aliquid magni dolores ex quisquam, exercitationem, officia, unde quis inventore explicabo tempore corporis!</p>
+      <button class="closeBtn">X</button>
+    </div>
+  </div>  
+  
+  <script>
+    const open = () => {
+      document.querySelector(".modal").classList.remove("hidden");
+      console.log("#OPEN")
+    };
+    
+    const close = () => {
+      document.querySelector(".modal").classList.add("hidden");
+    };
+    
+    document.querySelector(".openBtn").addEventListener("click",open);
+    document.querySelector(".closeBtn").addEventListener("click",close);
+    document.querySelector(".bg").addEventListener("click",close);
+    
+    
+    
+  </script>
+  
+</body>
+</html>
